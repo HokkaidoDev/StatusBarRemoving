@@ -20,26 +20,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         EdgeToEdge.enable(this);
         super.onCreate(savedInstanceState);
-        Window w = getWindow();
-        w.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION //скрываем нижнюю панель
-                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);  // Появляется поверх программы и исчезает.
-//                | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-//        |View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
 
-        // Одна з порад на stackoverflow, яка теж не спрацювала - її аналог закладений в темах(в денній)
-        // ось такою командою <item name="android:windowFullscreen">true</item> на 14 рядку.
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        // Це порада з developer.android.com - в мене не спрацювала!
-//        View decorView = getWindow().getDecorView();
-//// Hide the status bar.
-//        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-//        decorView.setSystemUiVisibility(uiOptions);
-//// Remember that you should never show the action bar if the
-//// status bar is hidden, so hide that too if necessary.
-//        ActionBar actionBar = getActionBar();
-//        actionBar.hide();
+        View decorView = getWindow().getDecorView();
+// Hide the status bar.
+        int uiOptions = decorView.getSystemUiVisibility();
+        uiOptions |=  View.SYSTEM_UI_FLAG_FULLSCREEN;
+        uiOptions |= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        uiOptions |= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        decorView.setSystemUiVisibility(uiOptions);
 
         setContentView(R.layout.happy_birthday);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main2), (v, insets) -> {
