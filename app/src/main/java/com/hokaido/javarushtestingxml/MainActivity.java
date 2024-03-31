@@ -50,7 +50,9 @@ public class MainActivity extends AppCompatActivity {
 // просто я видалив ті без яких і так працює так як я собі задумував.
 
 // How do you make an app with an actual fullscreen capabilities, that has the layout to be rendered
-// underneath the notch?
+// underneath the notch(bang)? Or - How to remove top status bar black background?
+// - https://stackoverflow.com/questions/56353716/how-to-remove-top-status-bar-black-background
+//  Important to draw behind cutouts ->
 //<item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="q">shortEdges</item>
 // - цей атрибут відповідає за те, як активіті або додаток взаємодіє з областю вирізу (display cutout),
 // яка може бути присутня на деяких сучасних пристроях Android(chat GPT). Для використання цього атрибута
