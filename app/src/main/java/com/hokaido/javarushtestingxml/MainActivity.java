@@ -1,7 +1,9 @@
 package com.hokaido.javarushtestingxml;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +14,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setFullScreen();
         setContentView(R.layout.happy_birthday);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+//            getWindow().getAttributes().layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
+//        } // робоче.
+        // просто прикол
+        // if(Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19)
     }
 
     private void setFullScreen() {
@@ -26,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 //    Коли конфігурація змінюється (наприклад, при обертанні пристрою), рядок стану може стати видимим.
 //    Щоб впоратися з цим, вам слід повторно застосувати режим занурення(immersive mode):
+
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -50,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 // просто я видалив ті без яких і так працює так як я собі задумував.
 
 // How do you make an app with an actual fullscreen capabilities, that has the layout to be rendered
-// underneath the notch(bang)? Or - How to remove top status bar black background?
+// underneath the notch(bang)(гпт)? Or - How to remove top status bar black background?
 // - https://stackoverflow.com/questions/56353716/how-to-remove-top-status-bar-black-background
 //  Important to draw behind cutouts ->
 //<item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="q">shortEdges</item>
@@ -59,3 +67,6 @@ public class MainActivity extends AppCompatActivity {
 // потрібно мати встановлений targetSdkVersion на рівні 28 або вище. Також, можливо, вам потрібно додати
 // tools:targetApi="p" для підказки Android Studio, що цей атрибут призначений для Android P і новіших версій.
 //Цей атрибут був доданий в Android P (API рівня 28)
+
+// This is how to hide navigation bar in different version API
+// https://stackoverflow.com/questions/21724420/how-to-hide-navigation-bar-permanently-in-android-activity#:~:text=Add%20a%20comment-,6,Show/Hide%20all%20system%20bars%3A,-public%20void%20hideSystemU
